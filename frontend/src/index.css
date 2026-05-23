@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Space Grotesk', sans-serif;
+  --color-gesta-cream: #FAF7F2;
+  --color-gesta-dark: #2D2D2D;
+  --color-gesta-green: #1CBC80;
+}
+
+body {
+  @apply bg-gesta-cream text-gesta-dark antialiased;
+}
+
+@layer components {
+  /* Core Crystal Clear Glass Panels */
+  .glass-panel {
+    @apply bg-white/30 backdrop-blur-xl border border-white/40 shadow-xl shadow-black/5;
+  }
+  
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/60 shadow-md shadow-black/5;
+  }
+
+  /* Glassmorphic Buttons */
+  .glass-btn-primary {
+    @apply bg-gesta-dark/95 backdrop-blur-md border border-white/10 text-[#F9F9F9] shadow-md transition-all duration-300;
+  }
+  .glass-btn-primary:hover {
+    @apply bg-[#1A1A1A] scale-105 shadow-[0_8px_24px_rgba(0,0,0,0.25)];
+  }
+
+  .glass-btn-secondary {
+    @apply bg-gesta-dark/10 backdrop-blur-xl border border-gesta-dark/30 text-gesta-dark font-bold shadow-sm transition-all duration-300;
+  }
+  .glass-btn-secondary:hover {
+    @apply bg-gesta-dark/20 scale-105 shadow-[0_8px_20px_rgba(0,0,0,0.1)];
+  }
+  
+  /* Micro Interaction Buttons */
+  .glass-icon-btn {
+    @apply p-3 bg-white/50 hover:bg-white text-slate-600 hover:text-gesta-dark rounded-xl transition-all shadow-sm border border-white/50;
+  }
+}
+
+/* Force DotLottie player background to be transparent */
+dotlottie-player,
+dotlottie-player canvas,
+.dotlottie-container,
+.dotlottie-container canvas,
+[data-dotlottie] canvas,
+lottie-player,
+lottie-player canvas,
+#lottie-background {
+  background: transparent !important;
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+
+/* Floating element animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out 1s infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out 0.5s infinite;
+}
